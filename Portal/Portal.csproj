@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A93EAB8D-F2E4-46B4-94A5-5B5AEEE1EED4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portal</RootNamespace>
+    <AssemblyName>Portal</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="JWT, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\JWT.3.1.1\lib\net46\JWT.dll</HintPath>
+    </Reference>
+    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
+      <HintPath>..\packages\CompareNETObjects.4.03.0.0\lib\net46\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.1.1.5\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.1.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.1.5\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.12\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RefactorThis.GraphDiff, Version=3.0.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\RefactorThis.GraphDiff.3.0.1\lib\RefactorThis.GraphDiff.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.Abstractions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.3.3.0\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AspNet.WebApi, Version=5.0.13.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.AspNet.WebApi.5.0.13\lib\net46\Unity.AspNet.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.2.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.7.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.7.0\lib\net46\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.5.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mvc5, Version=1.3.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc5.1.3.0\lib\net45\Unity.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiClient.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\ServerRouteConstraint.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UnityWebApiActivator.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Cache.cs" />
+    <Compile Include="Controllers\AccountApiController.cs" />
+    <Compile Include="Controllers\InvoiceHistoryApiController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\OrderApiController.cs" />
+    <Compile Include="Controllers\PdfController.cs" />
+    <Compile Include="Controllers\ProductApiController.cs" />
+    <Compile Include="Controllers\HolidayApiController.cs" />
+    <Compile Include="Controllers\UserApiController.cs" />
+    <Compile Include="Controllers\Utilities.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="IApiClient.cs" />
+    <Compile Include="ICache.cs" />
+    <Compile Include="IMailHelper.cs" />
+    <Compile Include="RegistryReader.cs" />
+    <Compile Include="IWebClient.cs" />
+    <Compile Include="JWT\JWTDecoder.cs" />
+    <Compile Include="JWT\JWTHandler.cs" />
+    <Compile Include="JWT\JWTManager.cs" />
+    <Compile Include="JWT\utilities.cs" />
+    <Compile Include="MailHelper.cs" />
+    <Compile Include="Models\InvoiceModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="WebClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="angularapp\app\account\account.component.css" />
+    <Content Include="angularapp\app\account\account.component.html" />
+    <Content Include="angularapp\app\admin-holidays\admin-holidays.component.css" />
+    <Content Include="angularapp\app\admin-holidays\admin-holidays.component.html" />
+    <Content Include="angularapp\app\admin-roles\admin-roles.component.css" />
+    <Content Include="angularapp\app\admin-roles\admin-roles.component.html" />
+    <Content Include="angularapp\app\admin-user\admin-user.component.css" />
+    <Content Include="angularapp\app\admin-user\admin-user.component.html" />
+    <Content Include="angularapp\app\administration\administration.component.css" />
+    <Content Include="angularapp\app\administration\administration.component.html" />
+    <Content Include="angularapp\app\app.component.css" />
+    <Content Include="angularapp\app\app.component.html" />
+    <Content Include="angularapp\app\blockui\block-ui.component.css" />
+    <Content Include="angularapp\app\blockui\block-ui.component.html" />
+    <Content Include="angularapp\app\c2\c2.component.css" />
+    <Content Include="angularapp\app\c2\c2.component.html" />
+    <Content Include="angularapp\app\clearancestock\clearancestock.component.css" />
+    <Content Include="angularapp\app\clearancestock\clearancestock.component.html" />
+    <Content Include="angularapp\app\common\impersonatebox\impersonatebox.component.css" />
+    <Content Include="angularapp\app\common\impersonatebox\impersonatebox.component.html" />
+    <Content Include="angularapp\app\common\messagebox\messagebox.component.css" />
+    <Content Include="angularapp\app\common\messagebox\messagebox.component.html" />
+    <Content Include="angularapp\app\common\orderfilter\orderfilter.component.css" />
+    <Content Include="angularapp\app\common\orderfilter\orderfilter.component.html" />
+    <Content Include="angularapp\app\invoice-history\invoice-history.component.css" />
+    <Content Include="angularapp\app\invoice-history\invoice-history.component.html" />
+    <Content Include="angularapp\app\login\login.component.css" />
+    <Content Include="angularapp\app\login\login.component.html" />
+    <Content Include="angularapp\app\login\set-password\set-password.component.css" />
+    <Content Include="angularapp\app\login\set-password\set-password.component.html" />
+    <Content Include="angularapp\app\order-history\order-history.component.css" />
+    <Content Include="angularapp\app\order-history\order-history.component.html" />
+    <Content Include="angularapp\app\order-history\orderdetailmodal\orderdetailmodal.component.css" />
+    <Content Include="angularapp\app\order-history\orderdetailmodal\orderdetailmodal.component.html" />
+    <Content Include="angularapp\app\order-tracking\order-tracking.component.css" />
+    <Content Include="angularapp\app\order-tracking\order-tracking.component.html" />
+    <Content Include="angularapp\app\stock\stock.component.css" />
+    <Content Include="angularapp\app\stock\stock.component.html" />
+    <Content Include="angularapp\app\welcome\welcome.component.css" />
+    <Content Include="angularapp\app\welcome\welcome.component.html" />
+    <Content Include="angularapp\assets\barbados-flag-bw.png" />
+    <Content Include="angularapp\assets\mountains.jpg" />
+    <Content Include="angularapp\assets\social-fb-bw.png" />
+    <Content Include="angularapp\assets\social-google-bw.png" />
+    <Content Include="angularapp\assets\social-twitter-bw.png" />
+    <Content Include="angularapp\c2-flex\content\content.component.css" />
+    <Content Include="angularapp\c2-flex\content\content.component.html" />
+    <Content Include="angularapp\c2-flex\flex-body\flex-body.component.css" />
+    <Content Include="angularapp\c2-flex\flex-body\flex-body.component.html" />
+    <Content Include="angularapp\c2-flex\menu-item\menu-item.component.css" />
+    <Content Include="angularapp\c2-flex\menu-item\menu-item.component.html" />
+    <Content Include="angularapp\c2-flex\menu\menu.component.css" />
+    <Content Include="angularapp\c2-flex\menu\menu.component.html" />
+    <Content Include="angularapp\c2-flex\status-bar\status-bar.component.css" />
+    <Content Include="angularapp\c2-flex\status-bar\status-bar.component.html" />
+    <Content Include="angularapp\c2-flex\title-bar\title-bar.component.css" />
+    <Content Include="angularapp\c2-flex\title-bar\title-bar.component.html" />
+    <Content Include="angularapp\c2-flex\users\forgot-password\forgot-password.component.css" />
+    <Content Include="angularapp\c2-flex\users\forgot-password\forgot-password.component.html" />
+    <Content Include="angularapp\c2-flex\users\lock-screen\lock-screen.component.css" />
+    <Content Include="angularapp\c2-flex\users\lock-screen\lock-screen.component.html" />
+    <Content Include="angularapp\c2-flex\users\login-screen\login-screen.component.css" />
+    <Content Include="angularapp\c2-flex\users\login-screen\login-screen.component.html" />
+    <Content Include="angularapp\favicon.ico" />
+    <Content Include="angularapp\index.html" />
+    <Content Include="angularapp\karma.conf.js" />
+    <Content Include="angularapp\main.js" />
+    <Content Include="angularapp\protractor.conf.js" />
+    <Content Include="angularapp\styles.css" />
+    <Content Include="AppReadme\Compare-NET-Objects-Help.txt" />
+    <Content Include="assets\back1.jpg" />
+    <Content Include="assets\barbados-flag-bw.png" />
+    <Content Include="assets\coming_soon _stamp.png" />
+    <Content Include="assets\designing_a_bathroom.jpg" />
+    <Content Include="assets\loading2.gif" />
+    <Content Include="assets\logo_c2.png" />
+    <Content Include="assets\mountains.jpg" />
+    <Content Include="assets\my_account_portal.jpg" />
+    <Content Include="assets\Price_list_portal.jpg" />
+    <Content Include="assets\shippingstatus.png" />
+    <Content Include="assets\social-fb-bw.png" />
+    <Content Include="assets\social-google-bw.png" />
+    <Content Include="assets\social-twitter-bw.png" />
+    <Content Include="assets\stock.jpg" />
+    <Content Include="assets\website.jpg" />
+    <Content Include="config\webpack.dev.js" />
+    <Content Include="config\webpack.helpers.js" />
+    <Content Include="config\webpack.prod.js" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\styles.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="jest.config.js" />
+    <Content Include="protractor.conf.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ShowOrderStatus.html" />
+    <Content Include="webpack.config.js" />
+    <Content Include="assets\.gitkeep" />
+    <Content Include="assets\tracking-order.json" />
+    <Content Include="angularapp\assets\tracking-order.json" />
+    <Content Include="angularapp\main.js.map" />
+    <Content Include="angularapp\README.md" />
+    <Content Include="angularapp\tsconfig.app.json" />
+    <Content Include="angularapp\tsconfig.spec.json" />
+    <Content Include="angular.json" />
+    <Content Include=".babelrc" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="package.json" />
+    <None Include="package-lock.json" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="tsconfig.json" />
+    <Content Include="tslint.json" />
+    <Content Include="Views\Pdf\Index.cshtml" />
+    <Content Include="Views\Pdf\Invoices.cshtml" />
+    <Content Include="Views\Pdf\_InvoiceHeader.cshtml" />
+    <Content Include="Views\Pdf\_InvoiceTable.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="angularapp\app\pipe\" />
+    <Folder Include="angularapp\c2-flex\lock-screen\" />
+    <Folder Include="angularapp\common_components\" />
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AegisImplictMail\AegisImplicitMail.csproj">
+      <Project>{6f330076-6c00-4a93-8571-2ab5477ffe3f}</Project>
+      <Name>AegisImplicitMail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\C2.Model\C2.Model.csproj">
+      <Project>{6b0d1387-aac3-4210-afa5-2f66147f0620}</Project>
+      <Name>C2.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.Model\Portal.Model.csproj">
+      <Project>{96b75847-063c-4b1c-9f48-c443bd72d7bb}</Project>
+      <Name>Portal.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="angularapp\app\account\account.component.ts" />
+    <Content Include="angularapp\app\admin-holidays\admin-holidays.component.ts" />
+    <Content Include="angularapp\app\admin-user\admin-user.component.ts" />
+    <Content Include="angularapp\app\administration\administration.component.ts" />
+    <Content Include="angularapp\app\app.component.spec.ts" />
+    <Content Include="angularapp\app\app.component.ts" />
+    <Content Include="angularapp\app\app.menu.ts" />
+    <Content Include="angularapp\app\app.module.ts" />
+    <Content Include="angularapp\app\app.routing.ts" />
+    <Content Include="angularapp\app\blockui\block-ui.component.spec.ts" />
+    <Content Include="angularapp\app\blockui\block-ui.component.ts" />
+    <Content Include="angularapp\app\common\impersonatebox\impersonatebox.component.spec.ts" />
+    <Content Include="angularapp\app\common\impersonatebox\impersonatebox.component.ts" />
+    <Content Include="angularapp\app\common\messagebox\messagebox.component.spec.ts" />
+    <Content Include="angularapp\app\common\messagebox\messagebox.component.ts" />
+    <Content Include="angularapp\app\common\messagebox\messagebox.service.spec.ts" />
+    <Content Include="angularapp\app\common\messagebox\messagebox.service.ts" />
+    <Content Include="angularapp\app\common\ModalDialog.ts" />
+    <Content Include="angularapp\app\common\orderfilter\orderfilter.component.spec.ts" />
+    <Content Include="angularapp\app\common\orderfilter\orderfilter.component.ts" />
+    <Content Include="angularapp\app\common\orderfilter\orderfilter.ts" />
+    <Content Include="angularapp\app\domainclasses.ts" />
+    <Content Include="angularapp\app\invoice-history\invoice-history.component.ts" />
+    <Content Include="angularapp\app\login\login.component.ts" />
+    <Content Include="angularapp\app\login\set-password\set-password.component.spec.ts" />
+    <Content Include="angularapp\app\login\set-password\set-password.component.ts" />
+    <Content Include="angularapp\app\modelclasses.ts" />
+    <Content Include="angularapp\app\order-history\order-history.component.ts" />
+    <Content Include="angularapp\app\order-history\orderdetailmodal\orderdetailmodal.component.spec.ts" />
+    <Content Include="angularapp\app\order-history\orderdetailmodal\orderdetailmodal.component.ts" />
+    <Content Include="angularapp\app\order-tracking\order-tracking.component.ts" />
+    <Content Include="angularapp\app\registerForm.directive.ts" />
+    <Content Include="angularapp\app\services\adm-guard.service.ts" />
+    <Content Include="angularapp\app\services\auth-guard.service.ts" />
+    <Content Include="angularapp\app\services\block-ui.service.ts" />
+    <Content Include="angularapp\app\services\holiday.service.ts" />
+    <Content Include="angularapp\app\services\http.service.ts" />
+    <Content Include="angularapp\app\services\invoice.service.ts" />
+    <Content Include="angularapp\app\services\order.service.ts" />
+    <Content Include="angularapp\app\services\product.service.ts" />
+    <Content Include="angularapp\app\services\user.service.spec.ts" />
+    <Content Include="angularapp\app\services\user.service.ts" />
+    <Content Include="angularapp\app\settings.ts" />
+    <Content Include="angularapp\app\stock\stock.component.ts" />
+    <Content Include="angularapp\app\track-order.service.ts" />
+    <Content Include="angularapp\app\welcome\welcome.component.ts" />
+    <Content Include="angularapp\environments\environment.prod.ts" />
+    <Content Include="angularapp\environments\environment.ts" />
+    <Content Include="angularapp\main.ts" />
+    <Content Include="angularapp\polyfills.ts" />
+    <Content Include="angularapp\test.ts" />
+    <Content Include="angularapp\typings.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ASPPDFLib">
+      <Guid>{414FEE4B-2879-4090-957E-423567FFCFC6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="angularapp\app\admin-roles\admin-roles.component.spec.ts" />
+    <TypeScriptCompile Include="angularapp\app\admin-roles\admin-roles.component.ts" />
+    <TypeScriptCompile Include="angularapp\app\c2\c2.component.ts" />
+    <TypeScriptCompile Include="angularapp\app\c2\securedmenuitem.ts" />
+    <TypeScriptCompile Include="angularapp\app\clearancestock\clearancestock.component.spec.ts" />
+    <TypeScriptCompile Include="angularapp\app\clearancestock\clearancestock.component.ts" />
+    <TypeScriptCompile Include="angularapp\app\index.d.ts" />
+    <TypeScriptCompile Include="angularapp\app\invoice-history\invoice-history.component.spec.ts" />
+    <TypeScriptCompile Include="angularapp\app\jestGlobalMocks.ts" />
+    <TypeScriptCompile Include="angularapp\app\mocks\mocked.ts" />
+    <TypeScriptCompile Include="angularapp\app\routestest.ts" />
+    <TypeScriptCompile Include="angularapp\app\services\http.service.spec.ts" />
+    <TypeScriptCompile Include="angularapp\app\services\order.service.spec.ts" />
+    <TypeScriptCompile Include="angularapp\app\services\product.service.spec.ts" />
+    <TypeScriptCompile Include="angularapp\app\setup-jest.ts" />
+    <TypeScriptCompile Include="angularapp\app\setupTestBed.ts" />
+    <TypeScriptCompile Include="angularapp\app\testmocks\blockuiservicemock.ts" />
+    <TypeScriptCompile Include="angularapp\app\testmocks\httpmock.ts" />
+    <TypeScriptCompile Include="angularapp\app\testmocks\notificationsServiceMock.ts" />
+    <TypeScriptCompile Include="angularapp\app\testmocks\routerMock.ts" />
+    <TypeScriptCompile Include="angularapp\app\testmocks\userserviceMock.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\c2-flex.module.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\content\content.component.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\flex-body\flex-body.component.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\menu-item\menu-item.component.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\menu\menu.component.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\services\common.service.spec.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\services\common.service.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\services\header.service..ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\services\header.service.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\services\menu.service.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\services\screen.service.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\status-bar\status-bar.component.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\title-bar\title-bar.component.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\users\forgot-password\forgot-password.component.spec.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\users\forgot-password\forgot-password.component.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\users\lock-screen\lock-screen.component.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\users\login-screen\login-screen.component.ts" />
+    <TypeScriptCompile Include="angularapp\c2-flex\users\user-api.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51189</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51190/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-5 col-sm-push-1 col-md-4 col-md-push-2">
+            <img src="assets/my_account_portal.jpg" class="img-responsive" alt="Image new picture">
+            <div class="title-holder">My Account</div>
+            <div class="links-holder">
+                <a [routerLink]="['account']" *ngIf="userHasPermission(permissions.ViewAccountDetails)"> 
+                    Account Details</a>
+                <a [routerLink]="['invoice-history']" *ngIf="userHasPermission(permissions.ViewInvoiceHistory)">
+                    Invoice History</a>
+                <a [routerLink]="['order-history']" *ngIf="userHasPermission(permissions.ViewOrderHistory)">
+                    Order History</a>
+                <!-- <a [routerLink]="['order-tracking']">
+                    Order History</a> -->
+            </div>
+        </div>
+        <div class="col-sm-5 col-sm-push-1 col-md-4 col-md-push-2">
+            <img src="assets/stock.jpg" class="img-responsive" alt="Image">            
+            <div class="title-holder">Stock</div>
+            <div class="links-holder">
+                <a [routerLink]="['stock']" *ngIf="userHasPermission(permissions.ViewStockSearch)">                
+                    Stock availability
+                </a>
+                <a [routerLink]="['clearance']" *ngIf="userHasPermission(permissions.ViewStockSearch)">                
+                    Clearance stock 
+                </a>    
+            </div>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5 col-sm-push-1 col-md-4 col-md-push-2">
+            <div class="coming-soon" style="display:none">
+                <img src="assets/coming_soon _stamp.png">
+            </div>
+            <img src="assets/website.jpg" class="img-responsive" alt="Image">
+            <div class="title-holder">Web site</div> 
+            <div class="links-holder">
+                <a class="external-link" href="http://c2portal.adamantzg.com/" target="_blank">
+                    Home </a>
+                <!-- <a>
+                    Link 2</a>
+                <a>
+                    Videos</a> -->
+            </div>
+        </div>
+        <div class="col-sm-5 col-sm-push-1 col-md-4 col-md-push-2">
+            <div class="coming-soon"><img src="assets/coming_soon _stamp.png"></div>
+            <img src="assets/Price_list_portal.jpg" class="img-responsive" alt="Image">
+            <div class="title-holder">Price Lists </div>
+            <div class="links-holder">
+                <a>
+                    Link 1</a>
+                <a>
+                    Sale</a>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <c2-flex-body></c2-flex-body> -->

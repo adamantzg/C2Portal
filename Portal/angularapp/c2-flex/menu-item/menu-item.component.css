@@ -1,0 +1,58 @@
+:host {
+    display: inline-block;
+    position: relative;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: 15px;
+    color:rgb(49,65,82);;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+}
+:host(.vertical-menu) {
+    display: block;
+    margin-left: 0;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    color: #F0FFF0;
+}
+span {
+    pointer-events: none;
+}
+.glyphicon, .fa {
+    top: 1px;
+    font-size: 14px;
+    margin-right: 4px;
+    margin-left: 8px;
+}
+
+/* .menu-item {
+    padding: 20px 10px 20px 10px;
+} */
+/* .menu-item.vertical-menu {
+    padding: 10px 6px 10px 10px;
+} */
+/* .menu-item:hover {
+    background-color: #dfd;
+    color:white;
+} */
+
+/* .menu-item.vertical-menu:hover {
+    
+    background: #48A648;
+    color:white;
+} */
+
+/* .router-link-active {
+    background-color: #dfd;
+} */
+
+/* .router-link-active.vertical-menu {
+    background-color: green; 
+    background: #48A648;
+    
+width:90%;
+} */

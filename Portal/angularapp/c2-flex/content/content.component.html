@@ -1,0 +1,13 @@
+<lock-screen class="lock-screen" *ngIf="showLockScreen" (unlockScreen)="screenAction($event)"></lock-screen>
+
+<!-- <c2-flex-menu class="vertical-menu" [class.small-nav]="menuService.showingLeftSideMenu && !screenService.isLarge()" *ngIf="menuService.showingLeftSideMenu"
+  (showLockScreen)="screenAction($event)"></c2-flex-menu> -->
+
+<!-- *ngIf="(menuService.isVertical && screenService.isLarge()) || (menuService.showingLeftSideMenu && !screenService.isLarge())"  -->
+
+<div class="body-style">
+
+  <c2-flex-title-bar ></c2-flex-title-bar>
+  <c2-flex-menu class="col-xs-12 col-sm-4 col-md-2" *ngIf="menuService.showingLeftSideMenu" ></c2-flex-menu>
+ <div [ngClass]="{'col-xs-12 col-sm-12 col-md-10': menuService.showingLeftSideMenu, 'col-xs-12 col-sm-12':!menuService.showingLeftSideMenu}"> <router-outlet></router-outlet></div>
+</div>

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-12 form-inline">
+    <div class="form-group">
+      <label class="m-r-xs">From:</label>
+      <input type="text" bs-datepicker class="form-control m-r-xs" bsDatepicker [(bsValue)]="filter.from" name="date" [bsConfig]="bsConfig" required>
+    </div>
+    <div class="form-group">
+        <label class="m-r-xs"> To:</label>
+        <input type="text" bs-datepicker class="form-control m-r-xs" bsDatepicker [(bsValue)]="filter.to" name="date" [bsConfig]="bsConfig" required>
+    </div>
+    <div class="form-group">
+      <label class="m-r-xs">{{searchLabel}}</label>
+      <input type="text" [(ngModel)]="filter.searchText" class="form-control m-r-xs">
+    </div>
+    <button class="btn m-l-xs" (click)="applyFilter()">Go</button>
+    <button class="btn m-l-xs" (click)="clearFilter()">Clear</button>
+  </div>
+  <!-- <div class="col-sm-12 form-inline">
+    <div class="form-group">
+      <label>Filter results:</label>
+      <input type="text" [(ngModel)]="filter.searchText" class="form-control">
+    </div>
+  </div> -->
+  
+</div>

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderdetailmodalComponent should create 1`] = `
+OrderdetailmodalComponent {
+  "bsModalRef": BsModalRef {
+    "hide": [Function],
+  },
+  "errorMessage": "",
+  "numberFormat": "1.2-2",
+  "order": Order {},
+  "total": 0,
+}
+`;

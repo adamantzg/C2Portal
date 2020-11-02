@@ -1,0 +1,103 @@
+<div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+<div class="container">
+    <br>
+    <app-impersonatebox (CustomerChange)="customerChanged($event)"  *ngIf="user.isTopAdmin || user.isInternal || user.isBranchAdmin"></app-impersonatebox>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+          <div class="panel">
+              <div class="panel-body">
+                <div class="col-xs-12 form-inline">
+                    <input [(ngModel)]="code"
+                    [typeahead]="products"
+                    (typeaheadOnSelect)="onProductSelected($event)"
+                    [typeaheadOptionsLimit]="20"
+                    (typeaheadLoading)="changeTypeaheadLoading($event)"
+                    [typeaheadMinLength]="2"                    
+                    typeaheadOptionField="combined_name"
+                    placeholder="Type product code"
+                    class="form-control"> <button class="btn btn-default m-l-xs" (click)="showStockAndPrice(code)" [disabled]="!code">Show stock</button> 
+                    
+                </div>            
+                <div *ngIf="autoCompleteloading">Loading products...</div>
+              </div>
+          </div>    
+        </div>
+      </div>
+      
+      <div class="row" *ngIf="product">
+        <div class="col-xs-12 col-sm-9 col-lg-9">
+          <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-sm-12 margin-top">
+            <h3 class="h3">{{product.code}} {{product.name}}</h3>
+          </div>
+          <div class="col-sm-12 bottom-border">
+                <div *ngIf="stockLoading">Loading stock info...</div>
+                <div *ngIf="!stockLoading && stock_level">
+            <h4 class="h4 text-info">
+              Stock Level
+            </h4>
+                      <div class="circle-holder" *ngIf="showStock">
+                        <i class="fa fa-circle circle-large circle-green" aria-hidden="true" *ngIf="stock_level == stockLevels.InStock"></i>
+                        <!-- <i class="fa fa-circle circle-small circle-green-light" aria-hidden="true" *ngIf="stock_level !== 3"></i> -->
+                        <i class="fa fa-circle circle-large circle-orange" aria-hidden="true" *ngIf="stock_level == stockLevels.Expiring"></i>
+                        <!-- <i class="fa fa-circle circle-small circle-orange-light" aria-hidden="true" *ngIf="stock_level != 2"></i> -->
+                        <i class="fa fa-circle circle-large circle-red" aria-hidden="true" *ngIf="stock_level == stockLevels.OutOfStock"></i>
+                        <!-- <i class="fa fa-circle circle-small circle-red-light" aria-hidden="true" *ngIf="stock_level != 1"></i>  -->
+                        <span style="font-size: 1.4em">{{stock_message}} </span>
+                      </div>
+                </div>
+                
+                
+                <div *ngIf="priceLoading">
+                  Loading price data...
+          </div>
+                <div *ngIf="!priceLoading && prices">
+          <div class="col-sm-12 margin-top">
+            <h4 class="h4 text-info">Price - Ex VAT</h4>
+          </div>
+          <div class="col-sm-12 bottom-border">
+                        <span>RRP  &pound;{{prices.basePrice | number:numFormat}} </span>
+          </div>
+          <div class="col-sm-12 margin-top">
+                        <h4 class="h4 text-info">Your Price - Ex VAT</h4>
+                      </div>
+                      <div class="col-sm-12 bottom-border">
+                        <span>&pound;{{prices.customerPrice | number:numFormat}} </span>
+                      </div>
+                </div>
+                
+                <div class="col-sm-12 margin-top">
+            <h4 class="h4 text-info">Product Description</h4>
+          </div>
+          <div class="col-sm-12">
+            <span class="">{{product.description}}</span>
+          </div>
+          <!-- <span>{{product | json}}</span> -->
+        </div>
+      </div>
+    </div>
+          
+        </div>
+        <div class="col-xs-12 col-sm-3 col-lg-3">
+      <!-- <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="h3"  style="text-align:center">Contact Us!</h3>
+          <div class="border" style="border-bottom:1px solid white; padding-top:10px; padding-bottom:10px"></div>
+          <p>
+            Please call or email using the details below and one of our
+            friendly advisors will be able to help with any queries you 
+            my have.
+          </p>
+          <p >
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            &nbsp;Email: info@bathroombrands.com
+          </p>
+          <p>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+            &nbsp;Number: 01234 567890</p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

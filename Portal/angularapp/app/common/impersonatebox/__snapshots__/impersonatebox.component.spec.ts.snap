@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImpersonateboxComponent should create 1`] = `
+<app-impersonatebox
+  CustomerChange={[Function EventEmitter]}
+  autoCompleteLoading="false"
+  customers={[Function Array]}
+  showButton={[Function Boolean]}
+  showLabel="false"
+  showWarning="false"
+  userService={[Function UserService]}
+>
+  <div
+    class="panel"
+  >
+    <div
+      class="form form-inline"
+    >
+      <div
+        class="form-group"
+      >
+        
+        <input
+          class="form-control"
+          placeholder="Type customer code"
+          typeaheadoptionfield="combined_name"
+        />
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</app-impersonatebox>
+`;

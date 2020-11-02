@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`admin-roles.component should create 1`] = `
+<admin-roles
+  commonService={[Function CommonService]}
+  editMode="0"
+  editModes={[Function Object]}
+  editedRoleId={[Function Number]}
+  errorMessage=""
+  gridDefinition={[Function GridDefinition]}
+  messageBoxService={[Function MessageboxService]}
+  model={[Function RolesModel]}
+  successMessage=""
+  userService={[Function UserService]}
+>
+  <div
+    class="container-fluid"
+    style="height: 100%"
+  >
+    
+    
+    <div
+      class="row admin-row"
+    >
+      <div
+        class="col-sm-12"
+      >
+        <br />
+        <button
+          class="btn btn-default"
+        >
+          <i
+            aria-hidden="true"
+            class="fa fa-plus-square-o"
+          />
+           Add new 
+        </button>
+      </div>
+    </div>
+    <div
+      class="col-sm-12"
+    />
+    <div
+      class="row"
+      style="height: 100%"
+    >
+      <div
+        class="col-sm-12"
+        style="height: 100%"
+      >
+        <app-grid>
+          <form
+            novalidate=""
+          >
+            <div>
+              <table
+                style="margin-bottom: 0px"
+              >
+                <thead>
+                  <tr>
+                    
+                  </tr>
+                </thead>
+                
+              </table>
+              
+              
+              
+            </div>
+          </form>
+        </app-grid>
+      </div>
+    </div>
+  </div><app-block-ui>
+    
+  </app-block-ui>
+</admin-roles>
+`;

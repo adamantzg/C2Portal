@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`order history it should create component 1`] = `
+<order-history
+  _localeService={[Function BsLocaleService]}
+  bsModalService={[Function BsModalService]}
+  commonService={[Function CommonService]}
+  customer_code=""
+  dateFormat={[Function String]}
+  errorMessage=""
+  filter={[Function OrderFilter]}
+  filteredOrders={[Function Array]}
+  gridDefinition={[Function GridDefinition]}
+  impersonation="false"
+  invoiceService={[Function InvoiceService]}
+  lastpage={[Function Number]}
+  loading="false"
+  messageBoxService={[Function MessageboxService]}
+  numFormat={[Function String]}
+  orderService={[Function OrderService]}
+  page={[Function Number]}
+  pageSize={[Function Number]}
+  router={[Function Router]}
+  showAsc="false"
+  showDesc={[Function Boolean]}
+  sortBy={[Function String]}
+  totals={[Function OrderTotals]}
+  user={[Function User]}
+  userService={[Function UserService]}
+>
+  <br /><div
+    class="col-sm-12"
+  >
+    
+    
+  </div>
+</order-history>
+`;

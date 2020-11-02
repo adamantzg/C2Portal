@@ -1,0 +1,102 @@
+<form #form="ngForm" class="form-horizontal">
+  <div class="alert alert-success" *ngIf="successMessage">{{successMessage}}</div>
+  <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+  <div class="col-sm-12">&nbsp;</div>
+  <div class="col-sm-1">&nbsp;</div>
+  
+  <div class="col-sm-5">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="panel-title">My Details</span>
+      </div>
+      <div class="panel-body">
+          <div class="form-horizontal">
+              <div class="form-group form-group-sm ">
+          <label class="col-sm-3" >First name </label>
+                  <div class="col-sm-9">
+            <input type="text" class="form-control" #name name="name" [(ngModel)]="user.name" id="">
+                      <!-- <input type="text" class="form-control input-sm" #name name="name" [(ngModel)]="user.username" id=""> -->
+                  </div>
+              </div>
+              <div class="form-group form-group-sm ">
+          <label class="col-sm-3" >Last name </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" #lastname name="lastname" [(ngModel)]="user.lastname" id="">
+          </div>
+        </div>
+        <div class="form-group form-group-sm ">
+                  <label class="col-sm-3">User Name </label>
+                  <div class="col-sm-9">
+            <input type="text" class="form-control" disabled= #username name="username" [(ngModel)]="user.username" id="">
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-sm-5">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="panel-title">Account Details</span>
+      </div>
+      <div class="panel-body">
+        <div class="form-group form-group-sm ">
+          <label class="col-sm-3">Customer Code </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" [disabled]="true"  #customerCode name="customerCode" [(ngModel)]="user.customer.code" id="">
+          </div>
+        </div>
+        <div class="form-group form-group-sm ">
+          <label class="col-sm-3">Business Name </label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" #businessName name="businessName" [(ngModel)]="user.customer.name"  >
+          </div>
+        </div>
+        <div class="form-group form-group-sm ">
+          <label class="col-sm-3">Business Address </label>
+          <div class="col-sm-9">
+          <input type="text" name="bussinessAddress1" class="form-control" #bussinessAddress1 [(ngModel)]="user.customer.address1">
+          </div>
+        </div>
+        <div class="form-group form-group-sm ">
+          <label class="col-sm-3"></label>
+          <div class="col-sm-9">
+          <input type="text" name="bussinessAddress2" class="form-control" #bussinessAddress2 [(ngModel)]="user.customer.address2">
+          </div>
+        </div>
+        <div class="form-group form-group-sm ">
+          <label class="col-sm-3"></label>
+          <div class="col-sm-9">
+          <input type="text" name="bussinessAddress3" class="form-control" #bussinessAddress3 [(ngModel)]="user.customer.address3">
+          </div>
+        </div>
+        <div class="form-group form-group-sm ">
+          <label class="col-sm-3"></label>
+          <div class="col-sm-9">
+          <input type="text" name="bussinessAddress4" class="form-control" #bussinessAddress4 [(ngModel)]="user.customer.address4">
+          </div>
+        </div>
+        <div class="form-group form-group-sm ">
+          <label class="col-sm-3">Postcode</label>
+          <div class="col-sm-9">
+          <input type="text" name="postcode" class="form-control" #postcode [(ngModel)]="user.customer.address6">
+          </div>
+        </div>
+        <div class="form-group form-group-sm ">
+            <label class="col-sm-3">Phone Number </label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" #phone name="phone" [(ngModel)]="user.customer.address5"  >
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-11">
+    <div class="pull-right">
+      <div class="btn btn-default btn-sm" (click)="update()">Update</div>
+    </div>
+  </div>
+  <app-block-ui></app-block-ui>
+</form>
+

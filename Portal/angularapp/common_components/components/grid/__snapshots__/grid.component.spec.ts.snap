@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridComponent should create 1`] = `
+<app-grid
+  ButtonClicked={[Function EventEmitter]}
+  SortChange={[Function EventEmitter]}
+  columnTypes={[Function Object]}
+  componentFactoryResolver={[Function CodegenComponentFactoryResolver]}
+  css={[Function String]}
+  dataTypes={[Function Object]}
+  editMode="0"
+  editModes={[Function Object]}
+  editValidation="false"
+  editorTypes={[Function Object]}
+  keyField={[Function String]}
+  style={[Function Object]}
+  viewContainerRef={[Function ViewContainerRef_]}
+>
+  <form
+    novalidate=""
+  >
+    <div>
+      <table
+        style="margin-bottom: 0px"
+      >
+        <thead>
+          <tr>
+            
+          </tr>
+        </thead>
+        
+      </table>
+      
+      
+      
+    </div>
+  </form>
+</app-grid>
+`;

@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`welcome component it should create component 1`] = `
+<app-welcome
+  permissions={[Function Object]}
+  user={[Function User]}
+  userService={[Function UserServiceMock]}
+>
+  <div
+    class="container"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-sm-5 col-sm-push-1 col-md-4 col-md-push-2"
+      >
+        <img
+          alt="Image"
+          class="img-responsive"
+          src="assets/img_1.jpg"
+        />
+        <div
+          class="title-holder"
+        >
+          My Account
+        </div>
+        <div
+          class="links-holder"
+        >
+          
+          
+          
+        </div>
+      </div>
+      <div
+        class="col-sm-5 col-sm-push-1 col-md-4 col-md-push-2"
+      >
+        <img
+          alt="Image"
+          class="img-responsive"
+          src="assets/img_2.jpg"
+        />
+        <div
+          class="title-holder"
+        >
+          Stock
+        </div>
+        
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-sm-5 col-sm-push-1 col-md-4 col-md-push-2"
+      >
+        <div
+          class="coming-soon"
+        >
+          <img
+            src="assets/coming_soon _stamp.png"
+          />
+        </div>
+        <img
+          alt="Image"
+          class="img-responsive"
+          src="assets/img_3.jpg"
+        />
+        <div
+          class="title-holder"
+        >
+          Instructions
+        </div>
+        <div
+          class="links-holder"
+        >
+          <a>
+             Link 1
+          </a>
+          <a>
+             Link 2
+          </a>
+          <a>
+             Videos
+          </a>
+        </div>
+      </div>
+      <div
+        class="col-sm-5 col-sm-push-1 col-md-4 col-md-push-2"
+      >
+        <div
+          class="coming-soon"
+        >
+          <img
+            src="assets/coming_soon _stamp.png"
+          />
+        </div>
+        <img
+          alt="Image"
+          class="img-responsive"
+          src="assets/img_4.jpg"
+        />
+        <div
+          class="title-holder"
+        >
+          News
+        </div>
+        <div
+          class="links-holder"
+        >
+          <a>
+             Link 1
+          </a>
+          <a>
+             Sale
+          </a>
+          <a>
+             Lik 3
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-welcome>
+`;

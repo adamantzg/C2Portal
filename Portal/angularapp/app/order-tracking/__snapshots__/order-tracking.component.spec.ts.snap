@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`order tracking should create 1`] = `
+<order-tracking
+  commonService={[Function CommonService]}
+  customer_code=""
+  datePattern={[Function String]}
+  errorMessage=""
+  holidayService={[Function HolidayService]}
+  orderService={[Function OrderService]}
+  orderStatuses={[Function Object]}
+  order_no=""
+  param=""
+  paramsChecked="false"
+  return_to={[Function String]}
+  route={[Function ActivatedRoute]}
+  router={[Function Router]}
+  user={[Function User]}
+  userService={[Function UserService]}
+>
+  <div
+    class="container-fluid"
+  >
+    <br />
+    <div
+      class="row"
+    >
+      <div
+        class="col-sm-4 col-md-1"
+      >
+        <button
+          class="btn btn-default"
+        >
+          Back
+        </button>
+      </div>
+      <div
+        class="col-sm-8 col-md-11"
+      >
+        
+      </div>
+    </div>
+    <div
+      class="row"
+      style="margin-top:-20px; margin-left:-26px; margin-right:-30px; text-align: left"
+    >
+      <div
+        class="col-sm-12"
+      >
+        <div
+          class="panel-default"
+        >
+          <div
+            class="panel-heading"
+            style="padding-left: 27px!important;"
+          >
+            <div
+              class="form-inline"
+            >
+              <div
+                class="form-group"
+              >
+                <label>
+                  Crosswater order no*:
+                </label>
+                <input
+                  class="form-control"
+                  type="text"
+                />
+                <button
+                  class="btn btn-default"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-sm-12"
+      >
+        <div>
+          *Order number can be obtained from your sales order acknowledgement
+        </div>
+      </div>
+    </div>
+    
+    
+  </div><app-block-ui>
+    
+  </app-block-ui>
+</order-tracking>
+`;

@@ -1,0 +1,90 @@
+<simple-notifications [options]="toastOptions"></simple-notifications>
+<div class="container">
+    <div class="row" style="text-align:center">
+        <!-- <h2>&nbsp;</h2> -->
+        <h2 class="h2">
+            <a *ngIf="yearCounter > 0" class="btn btn-link chevron-left" (click)="setYear(-1)"><i class="glyphicon glyphicon-chevron-left small"></i></a>
+            <!-- <span> &nbsp;Manage Holidays {{minDate.getFullYear()}}&nbsp; </span> -->
+            <span>{{minDate.getFullYear()}}</span>
+            <a class="btn btn-link chevron-right"  (click)="setYear(1)"><i class="glyphicon glyphicon-chevron-right small"></i></a>
+        </h2>
+    </div>
+    <!-- <div class="panel-group">
+      <div *ngFor="let month of months; let i = index"  class="col-lg-3" style="margin-bottom: 20px" >
+        <div class="panel panel-default">
+          <div class="panel-heading" > {{i+1}} {{month}} {{countDaysInMonth(year,i+1)}}</div>
+          <div class="panel-body">
+            <div *ngFor="let day of getDays(year,i+1), let d=index" class="btn btn-default">{{d+1}}</div>
+            
+          </div>
+        </div>
+      </div>
+    </div> -->
+   <form class="" #registerForm="ngForm" (ngSubmit)="saveNewHoliday()">
+        <div class="row" style="text-align:center">
+            <div class="col-sm-2">&nbsp;</div>
+            <div class="col-xs-12 col-sm-4 form-group">
+                <label style="float:left">Date *</label>
+                <input type="text" 
+                    name="dateIn"
+                    [(ngModel)]="holiday.date" 
+                    #dateIn="ngModel"
+                    placeholder="Please select non working day" 
+                    class="form-control input-sm" bsDatepicker
+                    [minDate]="minDate" 
+                    [maxDate]="maxDate"
+                    [bsConfig]="bsConfig"
+                    (bsValueChange)="onDatePickerValueChange($event)"
+                    required>
+                    <small *ngIf="dateIn?.errors?.reqired" class="text-danger" style="float:left" ><strong>*Is required</strong></small>
+                    
+            </div>
+    
+            <div class="col-sm-4 form-group">
+                <label style="float:left">Holiday</label>
+                <input 
+                name="nameIn"
+                class="form-control input-sm" 
+                [(ngModel)]="holiday.name" 
+                #nameIn="ngModel"
+                placeholder="Please add country holiday" 
+                required/>
+                <small *ngIf="nameIn?.errors?.reqired" class="text-danger" style="float:left" ><strong>*Is required</strong></small>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" [disabled]="!holiday.date" class="btn btn-default btn-sm btn-add-date pull-left">Save holiday</button>
+            </div>
+        </div>
+        
+    </form> 
+    <div *ngFor="let h of groupedHolidays; let gi = index" class="row">
+        <div class="list-group" *ngIf="h.value.length > 0">
+            <div class="col-sm-2">&nbsp;</div>
+            <div class="col-sm-8">
+                <div class="list-group-item disabled">{{h.key}}</div>
+                <div *ngFor="let val of sortInMonth(h.value); let i = index" class="list-group-item" >
+                    <!-- <span style="float:left; margin-right: 25px">{{gi}} {{i}} {{val.date}}</span> -->
+                    <span style="float:left; margin-right:25px">
+                        <strong> {{val.fullDate | date : 'dd/MM/yyyy' }}</strong>
+                    </span>
+                    <span>
+                        {{val.name}}
+                    </span>
+                    <a (click)="deleteHoliday(val, gi, i)" class="btn btn-link btn-xs pull-right"><i class="glyphicon glyphicon-remove" style="font-size:13px!important"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div *ngFor="let h of holidays" class="row">
+          <div  class="list-group ">
+              <div class="col-sm-2">&nbsp;</div>
+              <div class="col-sm-8" >
+                  <div class="list-group-item disabled" *ngIf="showYeaer(h.date | date:'yyyy')">{{h.date | date:'yyyy'}}</div>
+                 <div class="list-group-item">
+                     <span style="float:left; margin-right:25px"><strong>{{h.date | date : 'shortDate'}}</strong></span> 
+                    <span><i>{{h.name}}</i></span>
+                 </div>
+              </div>
+          </div>
+      </div> -->
+</div>

@@ -1,0 +1,22 @@
+
+  <div class="panel">    
+    <div class="form form-inline">
+      <div class="form-group">
+          <label *ngIf="showLabel">Impersonate: </label>
+          <input [(ngModel)]="customer_code"
+                    [typeahead]="customers"                    
+                    [typeaheadOptionsLimit]="25"
+                    (typeaheadLoading)="changeTypeaheadLoading($event)"
+                    [typeaheadMinLength]="3"                    
+                    typeaheadOptionField="combined_name"
+                    placeholder="Type customer code"
+                    class="form-control">          
+          <button *ngIf="showButton" class="btn btn-primary m-l-xs" (click)="clicked()" [disabled]="!customer_code">Impersonate</button>
+          <button class="btn btn-danger" (click)="clear(true)" *ngIf="customer">Clear</button>
+          <label *ngIf="customer">{{customer.code}} {{customer.name}} {{customer.address6}}</label>
+          <span class="alert alert-danger" *ngIf="showWarning">Customer with given code not found</span>
+          <span *ngIf="autoCompleteLoading">Loading customers...</span>
+      </div>      
+    </div>
+  </div>
+

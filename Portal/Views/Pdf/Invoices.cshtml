@@ -1,0 +1,93 @@
+﻿@using Portal.Models
+@model List<C2.Model.Order>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+	@{
+		var orders = Model;
+		var counter = 1;
+	}
+	@if (orders != null)
+	{
+		foreach (var o in orders)
+		{
+
+			for (int i = 0; i < o.details.Count; i+= InvoiceModel.rowsPerPageFull)
+			{
+				@Html.Partial("_InvoiceHeader", o)
+
+				@Html.Partial("_InvoiceTable", new InvoiceTableModel {From=i, Order = o})
+			}
+				
+			<table style="border:1px solid black; float:left; width:400px; margin-top:25px;font-size:14px">
+				<tr>
+					<td style="padding:10px 5px 5px 5px;">VAT DETAILS</td>
+					<td style="padding:10px 5px 5px 5px;">RATE</td>
+					<td style="padding:10px 5px 5px 5px;">AMOUNT</td>
+					<td style="padding:10px 5px 5px 5px;">VAT AMOUNT</td>
+				</tr>
+				<tr>
+					@{ var totalNet = o.details.Sum(d => d.val);
+						var totalVat = o.details.Sum(d => d.vat_amount);
+					}
+					<td style="padding:5px 5px 5px 5px;">@o.OrderCustomer.vat_type</td>
+					<td style="padding:5px 5px 5px 5px;">@(o.OrderCustomer.vat_percentage?.ToString("N2"))</td>
+					<td style="padding:5px 5px 5px 5px;">@(totalNet?.ToString("N2"))</td>
+					<td style="padding:5px 5px 5px 5px;">@(totalVat?.ToString("N2"))</td>
+				</tr>
+				<tr>
+					<td style="padding:10px 5px 5px 5px; height:47px" colspan="4">&nbsp;</td>
+				</tr>
+
+			</table>
+			<table style="border:1px solid black; float:right; border-spacing:0; width:350px; margin-top:25px;">
+				<tr>
+					<td style="padding:10px 10px 10px 10px; background-color:black;color:white; text-align:right">TOTAL NET</td>
+					<td style="padding:10px 10px 10px 10px; text-align:right">@(totalNet?.ToString("N2"))</td>
+				</tr>
+				<tr>
+					<td style="padding:10px 10px 10px 10px; background-color:black; color:white; text-align:right">TOTAL VAT</td>
+					<td style="padding:10px 10px 10px 10px; text-align:right">@(totalVat?.ToString("N2"))</td>
+				</tr>
+				<tr>
+					<td style="padding:10px 10px 10px 10px; background-color:black;color:white; text-align: right">TOTAL VALUE</td>
+					<td style="padding:10px 10px 10px 10px; text-align:right; border-top:1px solid black;">@((totalNet + totalVat)?.ToString("N2"))</td>
+				</tr>
+			</table>
+			
+
+			<div style="margin-left:0; margin-right:0;margin-top:0; width:100%;overflow:auto;  display:block;clear:both;">
+				
+				C2 Limited, Address, City Postcode VAT No: 3333333333
+				
+			</div>
+
+			if (counter++ < orders.Count)
+			{
+				<div style="page-break-before: always">
+				</div>
+			}
+
+		}
+	}
+
+
+
+
+</body>
+</html>

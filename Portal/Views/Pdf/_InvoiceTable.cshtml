@@ -1,0 +1,52 @@
+﻿@using Portal.Models
+@model Portal.Models.InvoiceTableModel
+
+@{ var o = Model.Order;}
+
+<table style="width:100%; border-spacing:0; margin-top:15px; border-bottom:1px solid #111">
+	<tr style="background:#111;color:white;text-align:center;">
+		<td style="padding-top:10px; padding-bottom:10px">PRODUCT</td>
+		<td style="padding-top:10px; padding-bottom:10px; width:35%">DESCRIPTION</td>
+		<td style="padding-top:10px; padding-bottom:10px">QTY</td>
+		<td style="padding-top:10px; padding-bottom:10px">LIST PRICE</td>
+		<td style="padding-top:10px; padding-bottom:10px">DISCOUNT <br /> %</td>
+		<td style="padding-top:10px; padding-bottom:10px">NETT PRICE</td>
+		<td style="padding-top:10px; padding-bottom:10px">VALUE</td>
+		<td style="padding-top:10px; padding-bottom:10px">V/C</td>
+
+
+
+
+	</tr>
+	@{
+		var from = Model.From;
+		var to = from + InvoiceModel.rowsPerPageFull;
+		var fullPage = true;
+		if (to > o.details.Count - 1)
+		{
+			to = from + InvoiceModel.rowsPerPageFooter;
+			fullPage = false;
+		}
+	}
+	@for (var i = from;i< to;i++)
+	{
+		var item = i < o.details.Count ? o.details[i] : null;
+		<tr style="height: 27px">
+			<td style="border-left:1px solid #111; padding:2px">@(item?.product) &nbsp;</td>
+			<td style="border-left:1px solid #111; padding:2px">@(item?.long_description) &nbsp;</td>
+			<td style="border-left:1px solid #111; padding:2px; text-align:right;">@(item?.despatched_qty) &nbsp;</td>
+			<td style="border-left:1px solid #111; padding:2px; text-align:right;">@(item?.list_price?.ToString("N2")) &nbsp;</td>
+			<td style="border-left:1px solid #111; padding:2px; text-align:right;">@(item != null ? $"{Math.Abs(item.discount ?? 0)}%" : "") &nbsp;</td>
+			<td style="border-left:1px solid #111; padding:2px; text-align:right;">@(item?.net_price?.ToString("N2")) &nbsp;</td>
+			<td style="border-left:1px solid #111; padding:2px; text-align:right;">@(item?.val) &nbsp;</td>
+			<td style="border-left:1px solid #111; padding:2px; border-right:1px solid #111">@Html.Raw(!string.IsNullOrWhiteSpace(item?.vat_code_new) ? item.vat_code_new : "&nbsp;")</td>
+		</tr>
+	}
+
+</table>
+@if (fullPage)
+{
+	<div style="text-align: right"><strong>Continued...</strong></div>
+	<div style="page-break-before: always">
+	</div>
+}

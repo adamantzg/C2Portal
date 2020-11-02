@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+    var urlOut = "http://localhost:1535/Test/ToPdf";
+    var urlIn = "http://localhost:51189/pdf/Invoice";
+    var fileName = "invoice.pdf";
+}
+<h2>Index</h2>
+
+@*@Html.ActionLink("Create A New Invoice", "Invoice", "Pdf", new { url = "http://localhost:51189/pdf/invoice", filename="invoice.pdf" } )*@
+
+<a href="@($"{urlOut}/?url={urlIn}&filename={fileName}")" target="_blank">Create A New Invoice</a>

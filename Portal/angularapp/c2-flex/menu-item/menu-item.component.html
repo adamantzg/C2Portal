@@ -1,0 +1,17 @@
+<!-- <div class="menu-item"
+[routerLink]="item.route"
+routerLinkActive="router-link-active"
+[ngClass]="{'vertical-menu': menuService.isVertical }"
+(click)="menuService.showingLeftSideMenu = false">
+<span class="glyphicon {{ item.icon }}"></span>
+<span>{{ item.text.toUpperCase() }}</span>
+</div> -->
+<div class="menu-item vertical-menu"
+  [routerLink]="[ './'+item.route ]"
+  routerLinkActive="router-link-active"
+  (click)="showHideMenu()"
+>
+  <i class="{{item.icon}}"></i>
+  <!-- <span> {{item.text}}</span> -->
+  <span>{{item.text}}</span>
+</div>

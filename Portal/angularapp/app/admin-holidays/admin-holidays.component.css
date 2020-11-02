@@ -1,0 +1,21 @@
+.panel {
+    min-height: 300px;
+}
+label{
+    margin-left:2px;
+}
+.btn-add-date{
+    margin-top:25px;
+}
+.btn-link i{
+    font-size:20px!important;
+   
+}
+.chevron-left, .chevron-right{ position: absolute;  margin-top:-3px;}
+.chevron-left{ margin-left: -75px}
+.chevron-right{margin-left: 20px}
+.btn-xs{
+    font-size:13px!important;
+    margin-top:-6px;
+    color: #b4bcc2!important;
+}

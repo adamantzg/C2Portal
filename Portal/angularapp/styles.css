@@ -1,0 +1,206 @@
+/* You can add global styles to this file, and also import other style files */
+input, select, textarea{
+    max-width:100%;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    padding:0!important;
+    
+}
+
+.vertical-menu{
+    /*background:#0039cb;*/
+    background:white;
+    /* position: relative; */
+    margin-top:0;
+    padding-top:10px;
+}
+.title {
+    /* background: rgba(0, 128, 0, .7); */
+    /* padding-top: 10px; */
+    color: white;
+    text-align: center; 
+     background: rgb(49,65,82);
+  }
+
+/* 9ea7aa */
+.cw-navbar-style{
+    /* background: rgb(49,65,82)!important; */
+
+    margin: 0;
+    border-radius: 0;
+    box-shadow: 0 2px 10px #222
+}
+.tracking{
+    background: #ffffff;
+    color:#333;
+}
+.router-link-active.vertical-menu,
+.menu-item.vertical-menu:hover {
+    /* background-color: green; */
+    padding:15px 0  15px 45px;
+    /* background: #f4f4f4!important; */
+    background:rgb(49,65,82);
+    /* background: #cfd8dc!important; */
+    color:#f4f4f4;
+    margin-left: -10px!important;
+}
+/* .router-link-active.vertical-menu,
+ {
+   
+    background: #0039cb;
+    color:important;
+    padding:20px 10px;
+    
+    
+} */
+.menu-item.vertical-menu{
+    margin-top:0;
+    margin-bottom:0;
+    padding:15px 0  15px 45px;
+    /* border-top: 1px solid rgb(49,65,82); */
+    /* border-bottom: 1px solid #333;     */
+    margin-left:-10px;
+}
+
+
+/* OVERIDE BOOTSTRAP */
+.cw-panel-primary{
+    border-color: #4d82cb; 
+    border-radius: 0;
+}
+.cw-panel-primary > .panel-heading{
+ background-color: #4d82cb;
+ border-color:#4d82cb;
+ color:#333;
+ border-radius: 0!important;
+}
+
+.cw-panel-info{
+    border-color: #82b1ff; 
+    border-radius: 0;
+}
+.cw-panel-info > .panel-heading{
+ background-color: #82b1ff;
+ border-color:#82b1ff;
+ color:#333;
+ border-radius: 0!important;
+}
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus{
+    background: #82b1ff!important;
+    border-color: #82b1ff!important;
+}
+/* .list-group-item:first-child{
+    border-radius: 0!important;
+    color:#111;
+} */
+
+
+.pagination>.disabled>span,
+.pagination>.disabled>span:hover,
+.pagination>.disabled>span:focus,
+.pagination>.disabled>a,
+.pagination>.disabled>a:hover,
+.pagination>.disabled>a:focus {
+    color: #ecf0f1;
+    background-color: #2C3E50!important;
+    border-color: #798d8f!important;
+    cursor: not-allowed;
+}
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+    z-index: 3;
+    color: #ffffff;
+    background-color:#2C3E50!important;
+    border-color: #798d8f!important;
+    cursor: default;
+    opacity: .8!important;
+}
+.page-link{
+    background-color: #2C3E50!important;
+}
+/* .page-link{
+    background-color: #4d82cb!important;
+    border-color:#1a242f;
+} */
+
+/* Customize the label (the container) */
+.container-chk{
+    display:block;
+    position:relative;
+    padding-left:35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size:22px;
+    -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+}
+
+/* Hide the browser's default checkbox */
+.container-chk input{
+    margin:0!important;
+    position:absolute;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+}
+/* Create a custom checkbox */
+.checkmark{
+    position: absolute;
+    /* top:0;
+    left:0; */
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 2px solid rgb(220, 228, 236);
+    z-index: 0;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container-chk  input:checked ~ .checkmark{
+    /* background-color: #2C3E50!important; */
+    background-color:white;
+}
+
+/* On mouse-over, add a grey background color */
+.container-chk:hover input ~ .checkmark {
+    /* background-color: #ccc; */
+    border-color: #2C3E50;
+  }
+  /* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container-chk input:checked ~ .checkmark:after {
+    display: block;
+  }
+/* Style the checkmark/indicator */
+.container-chk .checkmark:after, .container-chk .checkmark:hover {
+    left: 4px;
+    top: 0px;
+    width: 7px;
+    height: 13px;
+    /* border: solid white; */
+    /* border:solid #95a5a6; */
+    border:solid #2C3E50;
+
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index:3;
+  }
+ 

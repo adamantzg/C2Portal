@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderfilterComponent should create 1`] = `
+<app-orderfilter
+  bsConfig={[Function BsDatepickerConfig]}
+  filter={[Function OrderFilter]}
+  filterApplied={[Function EventEmitter]}
+  filterCleared={[Function EventEmitter]}
+  searchLabel={[Function String]}
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-sm-12 form-inline"
+    >
+      <div
+        class="form-group"
+      >
+        <label>
+          From:
+        </label>
+        <input
+          bs-datepicker=""
+          bsdatepicker=""
+          class="form-control"
+          name="date"
+          required=""
+          type="text"
+        />
+      </div>
+      <div
+        class="form-group"
+      >
+        <label>
+           To:
+        </label>
+        <input
+          bs-datepicker=""
+          bsdatepicker=""
+          class="form-control"
+          name="date"
+          required=""
+          type="text"
+        />
+      </div>
+      <div
+        class="form-group"
+      >
+        <label>
+          
+        </label>
+        <input
+          class="form-control"
+          type="text"
+        />
+      </div>
+      <button
+        class="btn"
+      >
+        Go
+      </button>
+      <button
+        class="btn"
+      >
+        Clear
+      </button>
+    </div>
+  </div>
+</app-orderfilter>
+`;

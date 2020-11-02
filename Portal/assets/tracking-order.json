@@ -1,0 +1,17 @@
+{
+    "order_no": 123456,
+    "customer_order_no": "12345",    
+    "date_entered" : "02/12/2017", 
+    "audit_date": "03/12/2017",
+    "invoice_date":null ,
+    "address1": "Jon Doe",
+    "address2": "Kutnjacki put 10",
+    "address3": "10000",
+    "address4": "Zagreb",
+    "address5": "",
+    "address6": "",
+    "town_city": "Zagreb",
+    "country": "Hrvatska",
+    "audit_key": "333",
+    "character_value": "cbcb"
+}

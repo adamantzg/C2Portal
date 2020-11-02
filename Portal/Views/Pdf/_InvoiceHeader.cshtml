@@ -1,0 +1,139 @@
+﻿@model C2.Model.Order
+
+@{
+	var o = Model;
+}
+<div style="margin-left:0; margin-right:0; width:100%;overflow:auto;  display:block;clear:both;">
+	<table style="width:100%">
+		<tr>
+			<td>
+				<div>
+					<img src="~/assets/logo_c2.png" style="width:550px;" />
+				</div>
+				
+			</td>
+			<td style="width: 280px">
+				<div style="background: #111;color:white; width:250px; text-align: center; font-size: 25px; padding: 15px 20px; border-radius: 10px; margin: 20px 10px 0 0;">
+					@(Model.order_no.StartsWith("CN") ? "CREDIT NOTE" : "SALES INVOICE")
+				</div>				
+			</td>
+		</tr>
+	</table>
+	
+	
+</div><div style="padding:0; width:100%;overflow:auto; display:block; ">
+
+		<table style="text-align:center; width:100%; margin-left:-15px">
+			<tr>
+				<td style="width:40%">
+					
+				</td>
+				<td style="width:20%">&nbsp;</td>
+				<td style="width:40%">&nbsp;</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td>&nbsp;</td>
+				<td style="text-align:left; padding-left:20px">
+					INVOICE No. : @o.invoice_no
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td>&nbsp;</td>
+				<td>
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td>&nbsp;</td>
+				<td style="text-align:left; padding-left: 20px">
+					INVOICE DATE : @(o.invoice_date?.ToString("dd/MM/yyyy"))
+
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td>&nbsp;</td>
+				<td>
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td>
+					
+				</td>
+				<td>&nbsp;</td>
+				<td style="text-align:left; padding-left:20px;">
+					ACCOUNT No: @o.invoice_customer
+				</td>
+			</tr>
+
+		</table>
+		<table style="width:100%; border-spacing:0; margin-top:15px;">
+			<tr>
+
+				<td style="padding:5px 15px; background:#111;color:white">INVOICE TO:</td>
+				<td>&nbsp;</td>
+				<td style="padding:5px 15px; background:#111;color:white">DELIVER TO:</td>
+			</tr>
+			<tr>
+
+				<td style="width:40%;border:1px solid #111; padding-left:15px">
+					@o.OrderCustomer.name
+					<br />
+					@o.OrderCustomer.address1
+					<br />
+					@o.OrderCustomer.address2
+					<br />
+					@o.OrderCustomer.address3
+					<br />
+					@o.OrderCustomer.address4
+					<br />
+					@o.OrderCustomer.address6
+					<br />
+					<br />
+					VAT Number: @o.OrderCustomer.vat_reg_number
+				</td>
+				<td style="width:20%">&nbsp;</td>
+				<td style="width:40%; border:1px solid #111; padding-left:15px">
+					@o.address1
+					<br />
+					@o.address2
+					<br />
+					@o.address3
+					<br />
+					@o.address4
+					<br />
+					@o.address5
+					<br />
+					@o.address6
+					<br />
+					<br />
+				</td>
+			</tr>
+		</table>
+		<table style="width:100%; border-spacing:0; margin-top:15px; text-align:center;border-bottom:1px solid #111">
+			<tr style="background:#111;color:white;">
+				<td style="padding-top:10px; padding-bottom:10px">ORDER NO</td>
+				<td style="padding-top:10px; padding-bottom:10px">YOUR REFERENCE</td>
+				<td style="padding-top:10px; padding-bottom:10px">DATE ORDERED</td>
+				<td style="padding-top:10px; padding-bottom:10px">DATE DESPATCHED</td>
+			</tr>
+			<tr>
+				<td style="border-left:1px solid #111; padding-top:10px; padding-bottom:10px"> @o.order_no</td>
+				<td style="border-left:1px solid #111; padding-top:10px; padding-bottom:10px"> @o.customer_order_no</td>
+				<td style="border-left:1px solid #111; padding-top:10px; padding-bottom:10px">@(o.date_entered?.ToString("dd/MM/yyyy"))</td>
+				<td style="border-left:1px solid #111; padding-top:10px; padding-bottom:10px; border-right:1px solid #111">@(o.invoice_date?.ToString("dd/MM/yyyy"))</td>
+			</tr>
+		</table>
+	</div>

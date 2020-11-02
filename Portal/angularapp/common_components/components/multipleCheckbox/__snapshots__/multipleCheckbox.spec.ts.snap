@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridComponent should create 1`] = `
+<multiple-checkbox
+  data={[Function Array]}
+  displayField={[Function String]}
+  idField={[Function String]}
+  selectedField={[Function String]}
+>
+  
+</multiple-checkbox>
+`;

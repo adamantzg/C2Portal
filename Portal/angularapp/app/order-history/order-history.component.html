@@ -1,0 +1,30 @@
+<br/>
+<div class="col-sm-12" *ngIf="user.isTopAdmin || user.isBranchAdmin">
+  <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+  <app-impersonatebox *ngIf="showImpersonationBox()" (CustomerChange)="showForCustomer($event)"></app-impersonatebox>
+</div>
+<div class="col-sm-12">
+  <div class="panel panel-default" *ngIf="loading">
+    <div class="text-center"><h4>Loading...</h4></div>
+  </div>
+  <div class="panel panel-default" *ngIf="!loading">
+    <app-block-ui></app-block-ui>
+    <div class="panel-body">
+      <app-orderfilter [filter]="filter" (filterApplied)="applyFilter()" (filterCleared)="clearFilter()"></app-orderfilter>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="text-center">
+              <pagination [itemsPerPage]="pageSize" [boundaryLinks]="true" [totalItems]="totals.orderCount" [maxSize]="20" 
+              [(ngModel)]="page" (pageChanged)="pageChanged($event)"></pagination>
+          </div>
+          <app-grid [data]="filteredOrders" [definition]="gridDefinition" (ButtonClicked)="gridButtonClicked($event)" (SortChange)="onGridSortChange($event)" 
+          [css]="'table table-striped'"></app-grid>
+          <div class="text-center">
+              <pagination [itemsPerPage]="pageSize" [boundaryLinks]="true" [totalItems]="totals.orderCount" [maxSize]="20" 
+              [(ngModel)]="page" (pageChanged)="pageChanged($event)"></pagination>
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

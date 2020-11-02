@@ -1,0 +1,52 @@
+<div class="sign-in-form">
+  <img src="./assets/logo_c2.png" width="300">
+  <h4>Sign In</h4>
+  <form #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)" novalidate>
+    <div class="input-group input-group-sm">
+        <span class="input-group-addon light-addon"  [class.error-addon]="username.invalid && username.touched" [class.light-addon-hasfocus]="userInputFocus"><span class="glyphicon glyphicon-user"></span></span>
+      <input 
+        (focus)="userInputSetFocus(true)"
+        (focusout)="userInputSetFocus(false)"
+        class="form-control" 
+        [class.alert-danger]="username.invalid && username.touched"
+        name="username" 
+        required placeholder="User Name/Email" 
+        ngModel 
+        #username="ngModel" />     
+    </div>
+    <div [hidden]="username.valid || username.untouched" class="text-danger input-error-text">
+        <strong>*User Name is required.</strong>
+      </div>
+    <div class="input-group input-group-sm">     
+        <span class="input-group-addon light-addon" [class.error-addon]="pass.invalid && pass.touched"  [class.light-addon-hasfocus]="passInputFocus"><span class="glyphicon glyphicon-lock"></span></span>
+
+      <input 
+        (focus)="passInputSetFocus(true)"
+        (focusout)="passInputSetFocus(false)"
+        class="form-control"
+        [class.error-addon]="pass.invalid && pass.touched" 
+        name="pass" 
+        type="password"
+        required ngModel 
+        #pass="ngModel" />
+    </div>
+    <div [hidden]="pass.valid || pass.pristine" class="text-danger input-error-text" >
+        <strong>*Password is required.</strong>
+    </div>
+    <div class="checkbox">
+      <label>
+      <input type="checkbox" name="rememberMe" ngModel /> Remember Me
+      </label>
+    </div>
+    <div><a style="cursor:pointer" (click)="forgotPass()">Forgot password?</a></div>
+    <div *ngIf="formError" class="alert text-danger">
+       <strong> {{ formError }}</strong>
+      </div>
+      <div *ngIf="!submitting">
+          <button type="submit" class="btn btn-primary btn-sm btn-block">Let's go</button>
+        </div>
+      <div *ngIf="submitting">
+          <p class="message">Signing In...</p>
+        </div>
+  </form>
+</div>

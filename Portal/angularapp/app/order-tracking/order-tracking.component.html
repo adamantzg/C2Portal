@@ -1,0 +1,225 @@
+<div class="container-fluid">
+  <br>
+  <div class="row">
+    <div class="col-sm-4 col-md-1">
+      <button class="btn btn-default" (click)="navigateToCaller()">Back</button>
+    </div>
+    <div class="col-sm-8 col-md-11">
+      <app-impersonatebox (CustomerChange)="showForCustomer($event)" *ngIf="user.isTopAdmin || user.isBranchAdmin"></app-impersonatebox>
+    </div>
+  </div>
+  
+  
+  <div class="row" style="margin-top:-20px; margin-left:-26px; margin-right:-30px; text-align: left">
+    <div class="col-sm-12">
+      <div class="panel-default">
+        <div class="panel-heading" style="padding-left: 27px!important;">
+          <div class="form-inline">
+            <div class="form-group">
+              <label class="m-r-xs">C2 Order no*:</label>
+              <input type="text" class="form-control" [(ngModel)]="order_no" (keypress)="onOrderInput($event)"> 
+              <button class="btn btn-default m-l-xs" (click)="searchOrder()" [disabled]="!order_no">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div>*Order number can be obtained from your sales order acknowledgement</div>
+    </div>
+  </div>
+  <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+  <div class="row row-margin-top" *ngIf="order">
+    <div class="col-sm-12">
+      <!-- <div class="panel" [ngClass]= "{'panel-info' : !order.date_entered , 'panel-warning' : (!!order.date_entered && !order.invoice_date) , 'panel-success' : !!order.invoice_date}" > -->
+      <div class="panel">
+        <div class="panel-heading hidden-xs">
+
+          <div class="shipping-holder">
+            &nbsp;
+            <!-- <span class="shippin-holder-text">Shipped Via: </span> -->
+            <span class="shippin-holder-text">Status:
+              <strong>{{getStatus()}}</strong>
+            </span>
+            <span class="shippin-holder-text" *ngIf="+order.status != orderStatuses.Delivered && expectedDeliveryDate">Expected Delivery:
+              <strong>{{expectedDeliveryDate|date: datePattern}}</strong>
+            </span>
+          </div>
+        </div>
+        <div class="panel-heading visible-xs">
+          <div class="col-xs-12">
+            <!-- <span class="h5">Shipped Via: </span> -->
+          </div>
+          <div class="col-xs-12">
+            <span class="h5">Status: {{getStatus()}}</span>
+          </div>
+          <div class="col-xs-12" *ngIf="order.status != orderStatuses.Delivered && expectedDeliveryDate">
+            <span class="h5">Expected Delivery: <strong>{{expectedDeliveryDate|date: datePattern}}</strong></span>
+          </div>
+        </div>
+
+        <div class="panel-body panel-shipping" style="padding-right:0" *ngIf="order.status != orderStatuses.Cancelled">
+        <!-- <div class="col-sm-3">-</div> -->
+          <div class="col-xs-12 visible-xs" style="padding:0;">
+            <div class="row" >
+              <div class="col-xs-6">
+                <div class="circle" [ngClass]="{'alert-danger' : +order.status < 1, 'alert-success': +order.status >= 1 }">
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                </div>
+                <div class="fa-xs-holder"  
+                [ngClass]="{'text-danger' : +order.status === 0,
+                'text-warning' : +order.status >=1 && +order.status <= orderStatuses.Received, 'text-success': +order.status > orderStatuses.Received}">
+                  &nbsp;
+                  <i class="fa fa-long-arrow-down"></i>
+                </div>
+              </div>
+              <div class="col-xs-5 col-track">
+                <span>Order Received</span>
+              </div>
+            </div>
+
+            <div class="row"  >
+              <div class="col-xs-6">
+                <div class="circle" [ngClass]="{'alert-danger':+order.status <= orderStatuses.Received, 'alert-success' : +order.status > orderStatuses.Received }">
+                  <i class="fa fa-truck fa-5x fa-flip-horizontal" aria-hidden="true"></i>
+                </div>
+                <div class="fa-xs-holder" [ngClass]="{'text-danger' : +order.status <= 5,
+                'text-warning' : +order.status > orderStatuses.Received && +order.status < orderStatuses.Delivered,
+                 'text-success': +order.status === orderStatuses.Delivered}">
+                  &nbsp;
+                  <i class="fa fa-long-arrow-down"></i>
+                </div>
+              </div>
+              <div class="col-xs-5 col-track">
+                <span>Order Processed</span>
+              </div>
+            </div>
+
+            <div class="row"  >
+              <div class="col-xs-6">
+                <div class="circle" [ngClass]="{'alert-danger': +order.status !== orderStatuses.Delivered,
+                 'alert-success': +order.status === orderStatuses.Delivered}">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="col-xs-5 col-track">
+                <span>Delivered</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+       
+      </div>
+      <div class="panel-body panel-shipping hidden-xs" *ngIf="order.status !== orderStatuses.Cancelled" >
+        <div class="shipping-holder">
+          <div class="circle-holder">
+            <div class="circle" [ngClass]="{'alert-danger' : +order.status < 1, 'alert-success': +order.status > 0  }">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </div>
+            <span>Order Received</span>
+          </div>
+          <div class="arrow-holder" 
+          [ngClass]="{'text-danger' : +order.status === 0,
+              'text-warning' : +order.status >=1 && +order.status <= orderStatuses.Received, 'text-success': +order.status > orderStatuses.Received}">
+            <i class="fa fa-long-arrow-right fa-5x" aria-hidden="true"></i>
+          </div>
+          <div class="circle-holder">
+            <div class="circle" [ngClass]="{'alert-danger':order.status <= orderStatuses.Received, 'alert-success' : order.status > orderStatuses.Received }">
+              <i class="fa fa-truck fa-5x fa-flip-horizontal" aria-hidden="true"></i>
+            </div>
+            <span>Order processed</span>
+          </div>
+          <div class="arrow-holder" [ngClass]="{'text-danger' : +order.status <= 5,
+          'text-warning' : +order.status > orderStatuses.Received && +order.status < orderStatuses.Delivered,
+           'text-success': +order.status === orderStatuses.Delivered}">
+            <i class="fa fa-long-arrow-right fa-5x" aria-hidden="true"></i>
+          </div>
+          <div class="circle-holder">
+            <div class="circle" [ngClass]="{'alert-danger': +order.status !== orderStatuses.Delivered, 'alert-success': +order.status === orderStatuses.Delivered}">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </div>
+            <span>Order delivered</span>
+          </div>
+
+        </div>
+      </div>
+      <div class="panel-body panel-shipping" *ngIf="order.status === orderStatuses.Cancelled" style="text-align:center">
+        
+        <div class="alert alert-danger">
+           <h3>Order Cancelled</h3>
+        </div>
+      </div>
+      <div class="panel-header">
+        &nbsp;
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row row-margin-top" *ngIf="order">
+  <div class="col-sm-1">&nbsp;</div>
+  <div class="col-sm-5">
+    <div class="panel panel-body">
+      <div class="panel-heading panel-heading-border">
+        <span class="panel-title">Order History</span>
+      </div>
+      <div class="panel-heading">
+        <div class="list-group list-group-bg">
+
+          <div *ngIf="order.invoice_date" class="list-group-item">
+            Order Delivered: {{order.invoice_date | date : datePattern}}
+          </div>
+          <div *ngIf="getProcessedDate(order)" class="list-group-item">
+            Order Processed: {{getProcessedDate(order) | date : datePattern}}
+          </div>
+          <div *ngIf="order.date_entered" class="list-group-item">
+            Order Received: {{order.date_entered | date: datePattern }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-5">
+    <div class="panel panel-body">
+      <div class="panel-heading panel-heading-border">
+        <span class="panel-title">Delivery Information</span>
+      </div>
+      <div class="panel-heading">
+        <div class="list-group list-group-bg">
+          <a class="list-group-item">
+            <div class="col-sm-6 col-lg-4 no-padding">
+              <i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Name: </div>
+
+            <div class="col-sm-6 no-padding">
+              <span>{{order.address1}}</span>
+            </div>
+          </a>
+
+          <a class="list-group-item" style="display:block">
+            <div class="col-sm-6 col-lg-4 no-padding">
+              <i class="fa fa-home" aria-hidden="true"></i> Address:</div>
+            <div class="col-sm-6 no-padding">{{order.address2}} </div>
+          </a>
+          <a class="list-group-item">
+            <div class="col-sm-6 col-sm-push-6 col-lg-push-4 no-padding"> {{order.address3}} {{order.address4}} </div>
+          </a>
+
+          <!-- <a class="list-group-item">
+              <div class="col-sm-6 col-sm-push-4">{{order.address5}}</div>
+            </a> -->
+          <!-- <a class="list-group-item">
+              <div class="col-sm-6 col-sm-push-4">{{order.address6}}</div>
+            </a> -->
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<app-block-ui></app-block-ui>

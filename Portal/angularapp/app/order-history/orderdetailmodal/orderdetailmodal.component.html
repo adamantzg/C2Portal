@@ -1,0 +1,35 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{order.order_no}} details</h3>
+  </div>
+  <div class="modal-body" id="modal-body">
+    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th class="text-right">Qty</th>
+                <th class="text-right">Value</th>
+            </tr>        
+        </thead>
+        <tbody>
+            <tr *ngFor="let d of order.details">
+                <td>{{d.product}}</td>
+                <td class="text-right">{{d.order_qty}}</td>
+                <td class="text-right">{{d.val | number:numberFormat}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="2"></td>
+                <td class="text-right" style="font-weight: bold">{{total | number:numberFormat}}</td>
+            </tr>            
+        </tfoot>
+    </table>
+  </div>
+  
+  <div class="modal-footer">
+      <button class="btn btn-primary" type="button" (click)="close()" >Close</button>    
+  </div>
+  
+
+
